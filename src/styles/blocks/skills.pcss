@@ -1,0 +1,101 @@
+.skills{
+    background-image: url(~images/benefit.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    padding-top: 144px;
+    padding-bottom: 144px;
+    position: relative;
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 662px;
+        height: 983px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        background-image: url(~images/hands.png);
+        left: 0;
+        bottom: -93px;
+    }
+    &-title{
+        margin-bottom: 53px;
+    }
+    &-text{
+        margin-bottom: 79px;
+    }
+    &__content{
+        margin-left: 455px;
+    }
+
+    &__data {
+        margin-left: 135px;
+        &-block{
+            &:first-child{
+                .skills__data-item{
+                    &:nth-child(1){
+                        .skill__circle--layer--above{
+                            stroke-dashoffset: 189;
+                        }
+                    }
+                    &:nth-child(2){
+                        .skill__circle--layer--above{
+                            stroke-dashoffset: 220;
+                        }
+                    }
+                    &:nth-child(3){
+                        .skill__circle--layer--above{
+                            stroke-dashoffset: 64;
+                        }
+                    }
+                    &:nth-child(4){
+                        .skill__circle--layer--above{
+                            stroke-dashoffset: 189;
+                        }
+                    }
+                }
+            }
+            &:last-child{
+                .skills__data-item{
+                    &:nth-child(1){
+                        .skill__circle--layer--above{
+                            stroke-dashoffset: 220;
+                        }
+                    }
+                    &:nth-child(2){
+                        .skill__circle--layer--above{
+                            stroke-dashoffset: 189;
+                        }
+                    }
+                    &:nth-child(3){
+                        .skill__circle--layer--above{
+                            stroke-dashoffset: 124;
+                        }
+                    }
+                    &:nth-child(4){
+                        .skill__circle--layer--above{
+                            stroke-dashoffset: 140;
+                        }
+                    }
+                }
+            }
+        }
+        &-list{
+            margin-top: 40px;
+            margin-bottom: 55px;
+            display: flex;
+            align-items: center;
+            
+        }
+        
+
+        &-item{
+            margin-right: 66px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}
