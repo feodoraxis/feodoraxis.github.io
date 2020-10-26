@@ -2,11 +2,13 @@
     display: flex;
     &__item{
         width: 178px;
+        // box-sizing: border-box;
         img {
             min-width: 100%;
+            outline-offset: -3px;
         }
-        &:first-child{
-            border: 3px solid #DC9322;
+        &:hover img{
+            outline: 3px solid #DC9322;
         }
     }
 }
