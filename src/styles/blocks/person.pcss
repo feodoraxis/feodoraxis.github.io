@@ -4,6 +4,9 @@
         margin-bottom: 80px;
         display: block;
         width: 200px;
+        @include tablets() {
+            margin-bottom: 50px;
+        }
     }
     &-data{
         font-size: 16px;
@@ -20,6 +23,10 @@
         }
         td{
             padding-bottom: 19px;
+        }
+
+        @include phones(){
+            margin-left: -3px;
         }
     }
 }

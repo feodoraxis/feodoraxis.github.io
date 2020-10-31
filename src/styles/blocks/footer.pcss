@@ -6,28 +6,53 @@
         display: flex;
         align-items: flex-start;
         margin-bottom: 16px;
+        @include phones() {
+            flex-wrap: wrap;
+        }
     }
 
     &-copyright p{
         opacity: .3;
         font-size: 48px;
         line-height: 1;
+        @include phones(){
+            margin-bottom: 26px;
+        }
     }
 
     &-name p{
         font-size: 18px;
         line-height: 30px;
         font-weight: 700;
+        @include tablets() {
+            text-transform: uppercase;
+        }
+        
+        @include phones() {
+            br{
+                display: none;
+            }
+        }
     }
 
     &-nav{
         ul{
             display: flex;
+            @include phones() {
+                flex-wrap: wrap;
+                margin-bottom: 27px;
+            }
         }
         li{
             margin-right: 62px;
             &:last-child{
                 margin-right: 0;
+            }
+
+            @include phones() {
+                margin-right: 0;
+                flex: 0 0 50%;
+                margin-bottom: 22px;
             }
         }
         a{
@@ -35,7 +60,6 @@
             text-decoration: none;
             &:hover{
                 font-weight: 600;
-                /* text-decoration: underline; */
             }
         }
     }
@@ -45,6 +69,12 @@
         opacity: .3;
         line-height: 30px;
         font-weight: 400;
+        @include phones() {
+            margin-bottom: 45px;
+            br{
+                display: none;
+            }
+        }
     }
 
     &-text p{
@@ -52,6 +82,9 @@
         font-size: 16px;
         line-height: 30px;
         font-weight: 400;
+        @include phones() {
+            margin-bottom: 22px;
+        }
     }
 
     &-author p{

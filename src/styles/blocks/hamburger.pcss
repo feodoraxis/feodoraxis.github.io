@@ -1,0 +1,25 @@
+.hamburger{
+    width: 29px;
+    height: 25px;
+    border-top: 4px solid #fff;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        border-top: 4px solid #fff;
+        width: 100%;
+    }
+    &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 6px;
+        bottom: auto;
+        border-top: 4px solid #fff;
+        width: 100%;
+    }
+}

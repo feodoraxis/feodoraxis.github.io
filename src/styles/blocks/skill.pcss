@@ -3,6 +3,22 @@
     width: 166px;
     height: 166px;
 
+    @include desktop() {
+        width: 140px;
+        height: 140px;
+    }
+
+    @include tablets() {
+        width: 166px;
+        height: 166px;
+    }
+
+
+    @include phones() {
+        width: 115px;
+        height: 115px;
+        margin: auto;
+    }
     
 }
 
@@ -16,10 +32,23 @@
             stroke-width: 12px;
             stroke-dasharray: 252;
             stroke-dashoffset: 125px;
+            @include desktop() {
+                stroke-width: 6px;
+            }
+            // @include tablets() {
+            //     stroke-width: 12px;
+            // }
         }
         &--under{
             stroke: #eaeaea;
             stroke-width: 5px;
+            @include desktop() {
+                stroke-width: 2px;
+                opacity: .1;
+            }
+            // @include tablets() {
+            //     stroke-width: 5px;
+            // }
         }
         
     }
@@ -38,4 +67,16 @@
     margin: auto;
     text-align: center;
     line-height: 138px;
+
+    @include desktop() {
+        line-height: 105px;
+    }
+    @include tablets() {
+        line-height: 138px;
+    }
+
+    @include phones() {
+        line-height: 90px;
+        font-size: 15px;
+    }
 }

@@ -12,11 +12,13 @@
     }
 
     &-logo{
+        flex: 10;
         font-size: 36px;
         line-height: 49px;
         font-weight: 800;
     }
     &-nav{
+        flex: 10;
         ul{
             display: flex;
             align-items: center;
@@ -35,9 +37,14 @@
                 font-weight: 600;
             }
         }
+
+        @include tablets() {
+            display: none;
+        }
     }
 
     &-social{
+        flex: 10;
         ul{
             display: flex;
             align-items: center;
@@ -63,5 +70,15 @@
                 }
             }
         }
+
+        @include phones() {
+            display: none;
+        }
+    }
+    &-hamburger{
+        @include min_tablets_p1() {
+            display: none;
+        }
+        flex: 1;
     }
 }

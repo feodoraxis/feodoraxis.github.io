@@ -14,4 +14,13 @@
             margin-right: 0;
         }
     }
+
+    @include tablets() {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    @include phones() {
+        justify-content: flex-start;
+        margin-bottom: 20px;
+    }
 }

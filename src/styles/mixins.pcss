@@ -10,8 +10,32 @@
   }
 }
 
+@mixin min_desktop() {
+  @media screen and (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin min_tablets_p1() {
+  @media screen and (min-width: $bp-tablets_p1) {
+    @content;
+  }
+}
+
+@mixin min_tablets() {
+  @media screen and (min-width: $bp-tablets) {
+    @content;
+  }
+}
+
 @mixin tablets() {
   @media screen and (max-width: $bp-tablets) {
+    @content;
+  }
+}
+
+@mixin min_phones() {
+  @media screen and (min-width: $bp-phones) {
     @content;
   }
 }

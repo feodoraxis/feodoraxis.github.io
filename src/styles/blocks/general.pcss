@@ -11,6 +11,18 @@
         margin-top: 170px;
         padding-bottom: 170px;
     }
+    @include tablets(){
+        background-image: none;//url(~images/background-tablet.jpg);
+        &-welcome{
+            background-image: url(~images/background-tablet.jpg);
+            background-position-y: bottom;
+        }
+        &-about{
+            margin-top: 0;
+            background-image: url(~images/background-person.jpg);
+            // padding-bottom: 0;
+        }
+    }
 }
 
 .welcome{
@@ -38,6 +50,35 @@
             font-weight: 800;
             font-size: 72px;
             line-height: 60px;
+        }
+
+        @include tablets() {
+            flex-direction: column;
+            align-items: center;
+
+            span{
+                text-align: center;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 30px;
+                margin-bottom: 24px;
+                margin-right: 0;
+            }
+            h1{
+                font-size: 48px;
+                line-height: 1;
+                text-align: center;
+            }
+        }
+
+        @include phones() {
+            span{
+                margin-bottom: 5px;
+            }
+            h1{
+                font-size: 36px;
+                max-width: 370px;
+            }
         }
     }
 

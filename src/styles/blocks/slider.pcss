@@ -7,6 +7,13 @@
     padding-bottom: 200px;  
     &__title{
         color: #fff;
+        @include phones() {
+            text-align: center;
+            margin-bottom: 10px;
+            h2{
+                font-size: 24px;
+            }
+        }
     }
 
     &__header{
@@ -14,6 +21,14 @@
         justify-content: space-between;
         padding-right: 54%;
         margin-bottom: 78px;
+        @include tablets() {
+            padding-right: 33%;
+        }
+
+        @include phones() {
+            padding-right: 0%;
+            flex-direction: column;
+        }
     }
     
     &__content{
@@ -22,6 +37,21 @@
 
     &__item{
         width: 444px;
-        margin-right: 60px;  
+        padding-right: 60px;
+        @include tablets() {
+            margin-right: 23px;
+        }
+        @include phones(){
+            margin-right: 0;
+        }
+    }
+
+    @include phones() {
+        padding-top: 70px;
+        padding-bottom: 40px;
+        &__buttons{
+            display: flex;
+            justify-content: center;
+        }
     }
 }

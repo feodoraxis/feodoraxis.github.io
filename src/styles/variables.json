@@ -4,6 +4,8 @@
   "errors-color": "#cd1515",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
+  "bp-tablets_p1": "769px",
   "bp-tablets": "768px",
-  "bp-phones": "480px"
+  "bp-phones": "480px",
+  "bp-phones_p1": "481px"
 }

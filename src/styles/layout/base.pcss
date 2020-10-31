@@ -12,6 +12,10 @@ html {
 body,
 html {
   height: 100%;
+  @include phones {
+    // font-size: 14px;
+    overflow-x: hidden;
+  }
 }
 
 body {
@@ -79,6 +83,10 @@ h3{
   font-size: 30px;
   font-weight: 700;
   line-height: 40px;
+  @include phones(){
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 
 h4{
@@ -95,6 +103,12 @@ p {
   line-height: 22px;
   color: rgba(#fff, .8);
   line-height: 30px;
+  @include tablets() {
+    font-size: 14px;
+  }
+  @include phones() {
+    line-height: 24px;
+  }
 }
 
 blockquote {
@@ -116,6 +130,11 @@ blockquote {
     fill: red;
     left: -48px;
     top: 5px;
+    @include phones() {
+      left: -28px;
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 

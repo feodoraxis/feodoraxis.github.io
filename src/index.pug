@@ -6,12 +6,13 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
     title Portfolio | main page
   body
     header.main__header
       .container.main__header-container
         .main__header-logo BA
-        .main__header-nav
+        .main__header-nav.hide-from-md
           nav
             - var menuItems = ["Обо мне", "Навыки", "Работы", "Отзывы"];
             ul
@@ -26,6 +27,9 @@ html(lang="en")
                 li
                   a
                     +icon(item, "social__icon")
+
+        .main__header-hamburger
+          .hamburger
 
     section.general
       .general-welcome
@@ -66,104 +70,23 @@ html(lang="en")
             h3 Чем я могу быть полезен вам
           .skills-text
             p Этот сайт я сделал в рамках обучения в Школе онлайн образования #[br] LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, #[br] как тут всё классно и красиво!
-
-          - 
-            var skillsCategories = [
-              ["Front-end", ["HTML", 'CSS', 'javascript', 'Vue']],
-              ["Workflow", ["GIT", 'Terminal', 'Gulp', 'Webpack']],
-            ];
-          .skills__data
-            each item in skillsCategories
-              .skills__data-block
-                h4 #{item[0]}
-                ul.skills__data-list
-                  each skill in item[1]
-                    li.skills__data-item
-                      .skill
-                        svg(viewBox="0 0 100 100").skill__circle-shape
-                          circle(cx="50" cy="50" r="40").skill__circle--layer--under
-                          circle(cx="50" cy="50" r="40" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle--layer--above
-                          linearGradient(id="gradient" x1="0%" x2="100%" y2="0%")
-                            stop(offset="0%" stop-color="#D0731B")
-                            stop(offset="100%" stop-color="#DC9322")
-
-                        .skill__title #{skill}
+          #skills-component
     section.works
-      .container
+      .container.works-container
         .works__title
           h2 Мои работы
         .works__content
-          .works-preview
-            .works-preview__pictures(data-slide="2")
-              +image("slider-1.jpg", "works-preview__img")
-              .works-preview__thumbs
-                ul.thumbs
-                  - for (var i = 4; i > 0; i--)
-                    li.thumbs__item
-                      a(href="#").thumbs__link
-                        +image(`slider-${i}.jpg`, 'thumbs__mini')
-
-              .works-preview__btns
-                .square-btns
-                  button(type="button").square-btns__item.square-btns__item--next.active
-                    +icon("arrow-down")
-                  button(type="button").square-btns__item.square-btns__item--prev 
-                    +icon("arrow-down")
-            .works-preview__info
-              - var tags = ["HTML", "CSS", 'JavaScript']
-              ul.tags
-                each item in tags
-                  li.tags__item
-                    .tag #{item}
-              .works-preview__title 
-                h3 Сайт школы #[br] образования
-              .works-preview-description 
-                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-              a(href="#").iconed-link 
-                +icon("link")
-                span Посмотреть сайт
+          #preview-component
 
     section.slider
-      .container
-        .slider__header
-          .slider__title
-            h2 Что обо мне говорят
-          .slider__buttons
-            button(type="button").round-btn.round-btn--left
-              +icon("arrow-down")
-            button(type="button").round-btn.round-btn--right
-              +icon("arrow-down")
-
-        ul.slider__content
-          li.slider__item
-            .quote
-              .quote__text
-                +icon('quote')
-                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-              .quote__user
-                .user-display
-                  .user-display__avatar
-                    +image("user.png")
-                  .user-display-data
-                    .user-display__name Ковальчук Дмитрий
-                    .user-display__position Основатель LoftSchool
-          li.slider__item
-            .quote
-              .quote__text
-                +icon('quote')
-                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-              .quote__user
-                .user-display
-                  .user-display__avatar
-                    +image("user.png")
-                  .user-display-data
-                    .user-display__name Ковальчук Дмитрий
-                    .user-display__position Основатель LoftSchool
+      #slider-component
 
 
     footer.main__footer
       .container
-        .main__footer-row
+
+        //- >1200
+        .main__footer-row.hide-from-xl
           .main__footer-col.col-2
             .main__footer-copyright
               p &copy; 2020
@@ -176,7 +99,8 @@ html(lang="en")
                 each item in menuItems
                   li 
                     a(href="#") #{item}
-        .main__footer-row
+
+        .main__footer-row.hide-from-xl
           .main__footer-col.col-2.offset-2
             .main__footer-subtitle
               p Личный сайт #[br] веб-разработчика
@@ -186,7 +110,8 @@ html(lang="en")
           .main__footer-col.col-4
             .main__footer-text
               p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
-        .main__footer-row
+
+        .main__footer-row.hide-from-xl
           .main__footer-col.col-4.offset-4
             .footer__socials
               ul
@@ -197,3 +122,128 @@ html(lang="en")
           .main__footer-col.col-4
             .main__footer-author
               p Martin Golding
+        //- >1200 (end)
+        //- >768
+        .main__footer-row.show-only-md
+          .main__footer-col.col-3
+            .main__footer-copyright
+              p &copy; 2020
+          
+          .main__footer-col.col-9
+            nav.main__footer-nav
+              ul
+                each item in menuItems
+                  li 
+                    a(href="#") #{item}
+
+        .main__footer-row.show-only-md
+          .main__footer-col.col-3
+            .main__footer-name
+              p Владимир #[br] Астаханов
+          
+          .main__footer-col.col-4
+            .main__footer-text
+              p Этот сайт я сделал в рамках обучения в #[br] Школе онлайн образования Loftschool
+          .main__footer-col.col-5
+            .main__footer-text
+              p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+
+        .main__footer-row.show-only-md
+          .main__footer-col.col-3
+            .main__footer-subtitle
+              p Личный сайт #[br] веб-разработчика
+          .main__footer-col.col-4
+            .footer__socials
+              ul
+                each item in socials
+                  li
+                    a
+                      +icon(item, "footer__socials-icon")
+          .main__footer-col.col-5
+            .main__footer-author
+              p Martin Golding
+        //- >768 (end)
+        //- >480
+        .main__footer-row.show-only-sm
+          .main__footer-col.col-4
+            .main__footer-copyright
+              p &copy; 2020
+          
+          .main__footer-col.col-8
+            nav.main__footer-nav
+              ul
+                each item in menuItems
+                  li 
+                    a(href="#") #{item}
+
+        .main__footer-row.show-only-sm
+          .main__footer-col.col-4
+            .main__footer-name
+              p Владимир #[br] Астаханов
+          
+          .main__footer-col.col-8
+            .main__footer-text
+              p Этот сайт я сделал в рамках обучения в #[br] Школе онлайн образования Loftschool
+
+        .main__footer-row.show-only-sm
+          .main__footer-col.col-4
+            .main__footer-subtitle
+              p Личный сайт #[br] веб-разработчика
+          .main__footer-col.col-8
+            .footer__socials
+              ul
+                each item in socials
+                  li
+                    a
+                      +icon(item, "footer__socials-icon")
+        .main__footer-row.show-only-sm
+          .main__footer-col.offset-4.col-8
+            .main__footer-text
+              p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+            .main__footer-author
+              p Martin Golding
+        //- >480 (end)
+        //- <480
+        .main__footer-row.show-only-xs
+          .main__footer-col.col-12
+            .main__footer-copyright
+              p &copy; 2020
+
+          .main__footer-col.col-12
+            .main__footer-name
+              p Владимир #[br] Астаханов
+
+          .main__footer-col.col-12
+            .main__footer-subtitle
+              p Личный сайт #[br] веб-разработчика
+          
+          .main__footer-col.col-12
+            nav.main__footer-nav
+              ul
+                each item in menuItems
+                  li 
+                    a(href="#") #{item}
+
+          
+          
+          .main__footer-col.col-12
+            .main__footer-text
+              p Этот сайт я сделал в рамках обучения в #[br] Школе онлайн образования Loftschool
+
+          
+          .main__footer-col.col-12
+            .footer__socials
+              ul
+                each item in socials
+                  li
+                    a
+                      +icon(item, "footer__socials-icon")
+                      
+          .main__footer-col.col-12
+            .main__footer-text
+              p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+            .main__footer-author
+              p Martin Golding
+        //- <480 (end)
+
+    include ./templates/entry.pug

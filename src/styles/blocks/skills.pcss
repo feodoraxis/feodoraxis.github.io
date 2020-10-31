@@ -19,67 +19,70 @@
         background-image: url(~images/hands.png);
         left: 0;
         bottom: -93px;
+        @include desktop() {
+            width: 490px;
+            height: 728px;
+        }
+
+        @include tablets() {
+            // transform: rotate(-90deg);
+            left: 0;
+            right: 0;
+            bottom: -81px;
+            margin: auto;
+            width: 337px;
+            height: 486px;
+            background-image: url(~images/hands-mobile.png);
+        }
+
+        @include phones() {
+            width: 100%;
+            max-width: 100%;
+            bottom: 0px;
+            height: 235px;
+            top: auto;
+            
+        }
+    }
+    @include tablets() {
+        padding-bottom: 280px;
     }
     &-title{
         margin-bottom: 53px;
+        @include tablets() {
+            text-align: center;
+            max-width: 280px;
+            margin: auto;
+            margin-bottom: 28px;
+        }
     }
     &-text{
         margin-bottom: 79px;
+        @include tablets() {
+            text-align: center;
+        }
     }
     &__content{
         margin-left: 455px;
+        @include desktop() {
+            margin-left: 337px;
+        }
+        @include tablets() {
+            margin-left: 0;
+        }
     }
 
     &__data {
         margin-left: 135px;
+        @include desktop() {
+            margin-left: 100px;
+        }
+        @include tablets() {
+            margin-left: 0;
+        }
         &-block{
-            &:first-child{
-                .skills__data-item{
-                    &:nth-child(1){
-                        .skill__circle--layer--above{
-                            stroke-dashoffset: 189;
-                        }
-                    }
-                    &:nth-child(2){
-                        .skill__circle--layer--above{
-                            stroke-dashoffset: 220;
-                        }
-                    }
-                    &:nth-child(3){
-                        .skill__circle--layer--above{
-                            stroke-dashoffset: 64;
-                        }
-                    }
-                    &:nth-child(4){
-                        .skill__circle--layer--above{
-                            stroke-dashoffset: 189;
-                        }
-                    }
-                }
-            }
-            &:last-child{
-                .skills__data-item{
-                    &:nth-child(1){
-                        .skill__circle--layer--above{
-                            stroke-dashoffset: 220;
-                        }
-                    }
-                    &:nth-child(2){
-                        .skill__circle--layer--above{
-                            stroke-dashoffset: 189;
-                        }
-                    }
-                    &:nth-child(3){
-                        .skill__circle--layer--above{
-                            stroke-dashoffset: 124;
-                        }
-                    }
-                    &:nth-child(4){
-                        .skill__circle--layer--above{
-                            stroke-dashoffset: 140;
-                        }
-                    }
-                }
+            @include tablets() {
+                text-align: center;
             }
         }
         &-list{
@@ -87,7 +90,14 @@
             margin-bottom: 55px;
             display: flex;
             align-items: center;
-            
+            @include tablets() {
+                justify-content: center;
+            }
+
+            @include phones() {
+                flex-wrap: wrap;
+
+            }
         }
         
 
@@ -96,6 +106,20 @@
             &:last-child{
                 margin-right: 0;
             }
+            @include desktop() {
+                margin-right: 34px;
+            }
+
+            @include phones() {
+                margin-right: 20px;
+                flex: 0 0 calc(50% - 10px);
+                max-width: calc(50% - 10px);
+                &:nth-child(even){
+                    margin-right: 0;
+                }
+            }
         }
     }
+
+    
 }

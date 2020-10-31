@@ -19,5 +19,27 @@
                 fill: #FFF;
             }
         }
+
+        @include desktop() {
+            width: 34px;
+            height: 34px;
+            svg{
+                width: 7px;
+            }
+        }
+
+        @include tablets() {
+            svg{
+                width: 10px;
+            }
+        }
+
+        @include phones() {
+            width: 55px;
+            height: 55px;
+            svg{
+                width: 17px;
+            }
+        }
     }
 }

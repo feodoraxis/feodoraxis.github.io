@@ -2,10 +2,8 @@
     color: #fff;
     &-down__btn{
         background-color: transparent;
-        // width: 110px;
         display: flex;
         align-items: center;
-        // justify-content: center;
         a{
             color: #fff;
             display: inline-block;
@@ -15,6 +13,10 @@
             fill: #fff;
             width: 20px;
             height: 20px;
+        }
+
+        @include tablets(){
+            display: none;
         }
     }
 }

@@ -9,13 +9,35 @@
             fill: #303133;
             left: 0;
             top: 0;
+            @include tablets() {
+                width: 37px;
+            }
+            @include phones() {
+                display: none;
+            }
         }
         p{
             padding-left: 95px;
+
+            @include tablets() {
+                padding-left: 45px;
+            }
+            @include phones() {
+                padding-left: 0;
+            }
         }
+
+        
     }
 
     &__user{
         padding-left: 95px;
+        @include tablets() {
+            padding-left: 45px;
+        }
+        @include phones() {
+            padding-left: 0;
+        }
     }
+
 }

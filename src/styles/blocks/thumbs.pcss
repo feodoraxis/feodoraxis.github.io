@@ -2,13 +2,17 @@
     display: flex;
     &__item{
         width: 178px;
-        // box-sizing: border-box;
         img {
             min-width: 100%;
             outline-offset: -3px;
         }
-        &:hover img{
+        &:hover img,
+        &.active img{
             outline: 3px solid #DC9322;
+        }
+
+        @include desktop() {
+            width: 120px;
         }
     }
 }
