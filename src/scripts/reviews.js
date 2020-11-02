@@ -11,11 +11,18 @@ new Vue({
   data() {
     return {
       reviews: [],
+      // sliderOptions: {}
+      // slidesPerView
       sliderOptions: {
         slidesPerView: 2
       }
     }
   },
+  // created() {
+  //   // responsiveslider_w() {
+  //     this.responsiveslider();
+  //   // }
+  // },
   methods: {
     requireImagesToArray(data) {
       return data.map((item) => {
@@ -27,7 +34,6 @@ new Vue({
     slide(direction) {
       const slider = this.$refs["slider"].$swiper;
 
-      // console.log(direction);
       switch(direction) {
         case "next":
           slider.slideNext();
@@ -36,10 +42,24 @@ new Vue({
           slider.slidePrev();
           break;
       }
-    }
+    },
+    // responsiveslider() {
+    //   // console.log(window.innerWidth);
+    //   if ( window.innerWidth <= 480 )
+    //     this.sliderOptions['slidesPerView'] = 1;
+    //   else
+    //     this.sliderOptions['slidesPerView'] = 2;
+  
+    // }
   },
   created() {
     const data = require("../data/reviews.json");
     this.reviews = this.requireImagesToArray(data);
-  }
+
+    if ( window.innerWidth <= 480 )
+      this.sliderOptions['slidesPerView'] = 1;
+    else
+      this.sliderOptions['slidesPerView'] = 2;
+  },
+  
 });
