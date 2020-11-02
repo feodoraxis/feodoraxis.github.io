@@ -9,29 +9,31 @@ html(lang="en")
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
     title Portfolio | main page
   body
-    header.main__header
-      .container.main__header-container
-        .main__header-logo BA
-        .main__header-nav.hide-from-md
-          nav
-            - var menuItems = ["Обо мне", "Навыки", "Работы", "Отзывы"];
-            ul
-              each item in menuItems
-                li
-                  a(href="#") #{item}
-
-        .main__header-social
-          - var socials = ["insta", "vk", "github", "envelope"];
-            ul
-              each item in socials
-                li
-                  a
-                    +icon(item, "social__icon")
-
-        .main__header-hamburger
-          .hamburger
+    
 
     section.general
+      header.main__header
+        .container.main__header-container
+          .main__header-logo BA
+          .main__header-nav.hide-from-md
+            nav
+              - var menuItems = ["Обо мне", "Навыки", "Работы", "Отзывы"];
+              ul
+                each item in menuItems
+                  li
+                    a(href="#") #{item}
+
+          .main__header-social
+            - var socials = ["insta", "vk", "github", "envelope"];
+              ul
+                each item in socials
+                  li
+                    a
+                      +icon(item, "social__icon")
+
+          .main__header-hamburger
+            .hamburger
+          
       .general-welcome
         .container.welcome-container
           .welcome__title
