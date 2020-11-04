@@ -4,9 +4,9 @@ script(type="text/x-template")#slider-container
       .slider__title
         h2 Что обо мне говорят
       .slider__buttons
-        button(type="button" @click="slide('prev')").round-btn.round-btn--left
+        button(type="button" @click="slide('prev')" :class="slide_left").round-btn.round-btn--left
           +icon("arrow-down")
-        button(type="button" @click="slide('next')").round-btn.round-btn--right
+        button(type="button" @click="slide('next')" :class="slide_right").round-btn.round-btn--right
           +icon("arrow-down")
 
     ul.slider__content

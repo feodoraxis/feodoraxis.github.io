@@ -11,18 +11,13 @@ new Vue({
   data() {
     return {
       reviews: [],
-      // sliderOptions: {}
-      // slidesPerView
       sliderOptions: {
         slidesPerView: 2
-      }
+      },
+      slide_left: '',
+      slide_right: 'active',
     }
   },
-  // created() {
-  //   // responsiveslider_w() {
-  //     this.responsiveslider();
-  //   // }
-  // },
   methods: {
     requireImagesToArray(data) {
       return data.map((item) => {
@@ -42,15 +37,20 @@ new Vue({
           slider.slidePrev();
           break;
       }
+
+      if ( slider.isEnd ) {
+        this.slide_left = 'active';
+        this.slide_right = '';
+      } else if (slider.activeIndex == 0 ) {
+        this.slide_left = '';
+        this.slide_right = 'active';
+      } else {
+        this.slide_left = 'active';
+        this.slide_right = 'active';
+      }
+      
     },
-    // responsiveslider() {
-    //   // console.log(window.innerWidth);
-    //   if ( window.innerWidth <= 480 )
-    //     this.sliderOptions['slidesPerView'] = 1;
-    //   else
-    //     this.sliderOptions['slidesPerView'] = 2;
-  
-    // }
+    
   },
   created() {
     const data = require("../data/reviews.json");

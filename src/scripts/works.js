@@ -6,11 +6,12 @@ const thumbs = {
 };
 
 const btns = {
+  props: ["slide_left", "slide_right"],
   template: "#preview-btns",
 };
 
 const display = {
-  props: ["currentWork", "works"],
+  props: ["currentWork", "works", "slide_left", "slide_right"],
   template: "#preview-display",
   components: {thumbs, btns},
 };
@@ -39,6 +40,8 @@ new Vue({
     return {
       works: [],
       currentIndex: 0,
+      slide_left: '',
+      slide_right: 'active',
     }
   },
   computed: {
@@ -48,17 +51,25 @@ new Vue({
   },
   watch: {
     currentIndex(value) {
-      this.makeInfiniteLoopForNdx(value);
+      this.makeInfiniteButtons(value);
     }
   },
   methods: {
-    makeInfiniteLoopForNdx(index) {
+    makeInfiniteButtons(index) {
       const worksNumber = this.works.length - 1;
-      if ( index < 0 )
-        this.currentIndex = worksNumber;
 
-      if ( index > worksNumber )
-        this.currentIndex = 0;
+      if ( index >= worksNumber ) {
+        this.slide_left = 'active';
+        this.slide_right = '';
+        return;
+      } else if (index == 0 ) {
+        this.slide_left = '';
+        this.slide_right = 'active';
+        return;
+      } else {
+        this.slide_left = 'active';
+        this.slide_right = 'active';
+      }
       
     },
     requireImagesToArray(data) {
@@ -72,10 +83,18 @@ new Vue({
       switch( direction ) {
         case "next": 
           this.currentIndex++;
+          
+          if ( this.currentIndex > (this.works.length - 1) )
+            this.currentIndex = this.works.length - 1;
+
           break;
         case "prev": 
           this.currentIndex--;
-          break;
+          
+          if ( this.currentIndex < 0 )
+            this.currentIndex = 0; 
+          
+            break;
       }
     }
   },

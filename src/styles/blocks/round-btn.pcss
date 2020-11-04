@@ -5,6 +5,7 @@
     border: 2px solid #FFF;
     line-height: 53px;
     background-color: transparent;
+    opacity: .6;
     &--left{
         margin-right: 28px;
         transform: rotate(180deg);
@@ -13,12 +14,16 @@
     svg{
         width: 17px;
         fill: #FFF;
-        
     }
-    &:hover{
-        border-color: #FF9A00;
-        svg{
-            fill: #FF9A00;
+    &.active{
+        opacity: 1;
+        
+        &:hover{
+            border-color: #FF9A00;
+            svg{
+                fill: #FF9A00;
+            }
         }
     }
+    
 }

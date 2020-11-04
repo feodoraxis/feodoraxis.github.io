@@ -3,6 +3,8 @@ script(type="text/x-template")#preview-container
     display(
       :currentWork="currentWork"
       :works="works"
+      :slide_right="slide_right"
+      :slide_left="slide_left"
       @slide="slide"
     )
     info(
@@ -21,6 +23,8 @@ script(type="text/x-template")#preview-display
     .works-preview__btns
       btns(
         @slide="$emit('slide', $event)"
+        :slide_right="slide_right"
+        :slide_left="slide_left"
       )
       
 script(type="text/x-template")#preview-thumbs
@@ -39,11 +43,13 @@ script(type="text/x-template")#preview-btns
     button(
       type="button"
       @click="$emit('slide', 'next')"
-    ).square-btns__item.square-btns__item--next.active
+      :class="slide_right"
+    ).square-btns__item.square-btns__item--next
       +icon("arrow-down")
     button(
       type="button"
       @click="$emit('slide', 'prev')"
+      :class="slide_left"
     ).square-btns__item.square-btns__item--prev 
       +icon("arrow-down")
 

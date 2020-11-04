@@ -7,18 +7,25 @@
         position: relative;
         z-index: 2;
         background-color: #333C49 !important;
+        // opacity: .6;
         svg{
             fill: rgba(#FFF, .5);
             width: 15px;
         }
+        &.active{
+            svg{
+                fill: rgba(#FFF, .8);
+            }
+            &:hover{
+                svg{
+                    fill: #FFF;
+                }
+            }
+        }
         &--prev{
             transform: rotate(180deg);
         }
-        &:hover{
-            svg{
-                fill: #FFF;
-            }
-        }
+        
 
         @include desktop() {
             width: 34px;
