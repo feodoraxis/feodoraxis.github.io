@@ -47,3 +47,17 @@ export const simpleView = () => ({
 simpleView.story = {
   name: "Упрощенный вид"
 }
+
+
+export const smallPaddingView = () => ({
+  components: { card },
+  template: `
+    <card smallPadding>
+      <h1>Содержимое</h1>  
+    </card>
+  `,
+});
+
+smallPaddingView.story = {
+  name: "Маленький вид"
+}

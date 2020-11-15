@@ -1,11 +1,6 @@
-<template>
-  <div class="avatar-component" :style="measures">
-    <img 
-      class="image"
-      v-bind="$attrs"
-      alt="user picture"
-    />
-  </div>
+<template lang="pug">
+  .avatar-component(:style="measures")
+    img(class="image" v-bind="$attrs" alt="user picture")
 </template>
 <script>
 export default {

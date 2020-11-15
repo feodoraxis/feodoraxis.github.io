@@ -1,0 +1,44 @@
+.skill-add-line{
+    display: flex;
+    width: 100%;
+    position: relative;
+    &.blocked{
+        filter: grayscale(100%);
+        pointer-events: none;
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+    }
+    button{
+        border: 0;
+        // width: 30px;
+    }
+
+    .input{
+        width: 100%;
+        // max-width: calc(100% - 130px);
+    }
+
+    .percent{
+        position: relative;
+        width: 100px;
+        .input{
+            max-width: 100px;
+            padding: 0 15px;
+        }
+        &::before{
+            content: "%";
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 16px;
+            z-index: 10;
+        }
+    }
+}
