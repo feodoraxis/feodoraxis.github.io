@@ -35,7 +35,16 @@
 </template>
 
 <script>
+// import { Validator } from 'simple-vue-validator';
+
 export default {
+  // mixin: [require('simple-vue-validator').mixin],
+  // validators: {
+  //   // 'currentSkill.title'(value) {
+  //   //   $emit(Validator.value().required('Поле не может быть пустым');
+  //   // }
+  //     // 'currentSkill.percent',
+  // },
   inheritAttrs: false,
   props: {
     title: {

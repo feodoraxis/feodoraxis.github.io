@@ -53,7 +53,7 @@
     created() {
       this.categories = require("./data/categoryes.json");
       this.avatar_link = require("../images/avatar.png");
-      console.log(avatar_link);
+      // console.log(avatar_link);
     }
   }
 </script>

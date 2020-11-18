@@ -12,6 +12,7 @@
 
     <div class="skill-component" v-else>
         <div class="title">
+            <div class='validation'>{{ validation.firstError('currentSkill.title') }}</div>
             <app-input 
                 v-model="currentSkill.title"
                 noSidePaddings
@@ -27,7 +28,8 @@
                 />
             </div>
             <div class="buttons">
-                <icon symbol="tick" class="btn" @click="$emit('approve', currentSkill)" />
+                <!-- <icon symbol="tick" class="btn" @click="$emit('approve', currentSkill)" /> -->
+                <icon symbol="tick" class="btn" @click="editMode = false" />
                 <icon symbol="cross" class="btn" @click="editMode = false" />
             </div>
         </div>
@@ -36,6 +38,8 @@
 <script>
 import input from "../input";
 import icon from "../icon";
+import { Validator } from 'simple-vue-validator';
+
 
 export default {
     props: {
@@ -43,6 +47,12 @@ export default {
             type: Object,
             default: () => {},
             required: true
+        }
+    },
+    mixins: [require('simple-vue-validator').mixin],
+    validators: {
+        'currentSkill.title'(value) {
+            return Validator.value(value).required('Заполните поле');
         }
     },
     data() {
