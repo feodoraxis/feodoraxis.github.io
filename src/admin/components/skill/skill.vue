@@ -12,10 +12,11 @@
 
     <div class="skill-component" v-else>
         <div class="title">
-            <div class='validation'>{{ validation.firstError('currentSkill.title') }}</div>
             <app-input 
+                :class="currentSkill.title == '' ? 'error':''"
                 v-model="currentSkill.title"
                 noSidePaddings
+                :errorMessage="validation.firstError('currentSkill.title')"
             />
         </div>
         <div class="flex">
@@ -67,7 +68,7 @@ export default {
     },
     components: {
         icon, 
-        appInput: input
+        appInput: input,
     }
 }
 </script>
